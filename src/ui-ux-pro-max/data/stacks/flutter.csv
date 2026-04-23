@@ -1,3 +1,4 @@
+# METADATA,version=1.0,extended=flutter-extended.csv,skill=src/flutter-skill/FLUTTER_SKILL.md,rules=src/flutter-skill/FLUTTER_RULES.md,entries=52
 No,Category,Guideline,Description,Do,Don't,Code Good,Code Bad,Severity,Docs URL
 1,Widgets,Use StatelessWidget when possible,Immutable widgets are simpler,StatelessWidget for static UI,StatefulWidget for everything,class MyWidget extends StatelessWidget,class MyWidget extends StatefulWidget (static),Medium,https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html
 2,Widgets,Keep widgets small,Single responsibility principle,Extract widgets into smaller pieces,Large build methods,Column(children: [Header() Content()]),500+ line build method,Medium,
