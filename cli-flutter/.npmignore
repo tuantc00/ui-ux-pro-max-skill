@@ -1,0 +1,6 @@
+**/settings.local.json
+**/__pycache__/
+src/
+tsconfig.json
+bun.lock
+package-lock.json

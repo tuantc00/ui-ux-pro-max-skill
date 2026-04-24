@@ -51,6 +51,19 @@ cli/                              # CLI installer (uipro-cli on npm)
     ├── scripts/                  # Copy of src/ui-ux-pro-max/scripts/
     └── templates/                # Copy of src/ui-ux-pro-max/templates/
 
+cli-flutter/                      # Flutter CLI installer (flutter-pro-cli on npm)
+├── src/
+│   ├── index.ts                  # Entry point (flutterpro command)
+│   ├── commands/init.ts          # Install command
+│   ├── commands/uninstall.ts     # Uninstall command
+│   ├── types/index.ts            # AI types + platform configs
+│   └── utils/                   # logger, detect, installer
+└── assets/                       # Bundled Flutter skill files
+    ├── FLUTTER_SKILL.md          # Main skill (synced from src/flutter-skill/)
+    ├── FLUTTER_RULES.md          # Rules file
+    ├── CODE_REVIEW_CHECKLIST.md  # Code review checklist
+    └── PROJECT_STRUCTURE.md      # Clean Architecture structure
+
 .claude/skills/ui-ux-pro-max/     # Claude Code skill (symlinks to src/)
 .factory/skills/ui-ux-pro-max/   # Droid (Factory) skill (symlinks to src/)
 .shared/ui-ux-pro-max/            # Symlink to src/ui-ux-pro-max/
@@ -82,11 +95,30 @@ When modifying files:
    cp -r src/ui-ux-pro-max/templates/* cli/assets/templates/
    ```
 
-4. **Reference Folders** - No manual sync needed. The CLI generates these from templates during `uipro init`.
+4. **Flutter CLI Assets** - Run sync before publishing flutter-pro-cli:
+   ```bash
+   cp src/flutter-skill/FLUTTER_SKILL.md cli-flutter/assets/FLUTTER_SKILL.md
+   cp src/flutter-skill/FLUTTER_RULES.md cli-flutter/assets/FLUTTER_RULES.md
+   cp src/flutter-skill/CODE_REVIEW_CHECKLIST.md cli-flutter/assets/CODE_REVIEW_CHECKLIST.md
+   cp src/flutter-skill/PROJECT_STRUCTURE.md cli-flutter/assets/PROJECT_STRUCTURE.md
+   ```
+
+5. **Reference Folders** - No manual sync needed. The CLI generates these from templates during `uipro init`.
 
 ## Prerequisites
 
 Python 3.x (no external dependencies required)
+Node.js + Bun (for CLI packages — `cli/` and `cli-flutter/`)
+
+## Build CLI Packages
+
+```bash
+# Build UI/UX Pro Max CLI
+cd cli && bun install && bun run build
+
+# Build Flutter Pro CLI
+cd cli-flutter && bun install && bun run build
+```
 
 ## Git Workflow
 
